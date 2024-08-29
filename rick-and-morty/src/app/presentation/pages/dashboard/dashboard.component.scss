@@ -1,0 +1,15 @@
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: #FFF;
+  border-radius: 10px;
+  padding: 10px 2rem;
+  margin-bottom: 1rem;
+}
+
+.buttons--container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}

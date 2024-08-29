@@ -1,0 +1,7 @@
+<div class="dashboard-wrapper">
+  <div class="buttons--container">
+    @for (button of mfButtons; track $index) {
+      <app-mf-button [props]="button"></app-mf-button>
+    }
+  </div>
+</div>

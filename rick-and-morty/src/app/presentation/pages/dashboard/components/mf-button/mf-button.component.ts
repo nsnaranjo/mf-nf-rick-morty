@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { ButtonPropsModel } from '../../../../../domain/models';
 
-import { MButtonProps } from '../../../../../domain/models/button-config.interface';
 
 @Component({
   selector: 'app-mf-button',
@@ -10,7 +10,7 @@ import { MButtonProps } from '../../../../../domain/models/button-config.interfa
   styleUrl: './mf-button.component.scss'
 })
 export class MfButtonComponent {
-  @Input() props: MButtonProps;
+  @Input() props: ButtonPropsModel;
 
   constructor() {
     this.props = {

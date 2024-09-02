@@ -1,0 +1,23 @@
+# Capa de Aplicación
+
+Esta capa orquesta la interacción entre la capa de dominio y las demás capas. 
+Se enfoca en la lógica de aplicación (use cases) que define cómo se utilizan 
+las entidades del dominio.
+
+## Usecases
+
+Implementa la lógica de los casos de uso de la aplicación. Estos archivos 
+contienen la lógica que define cómo interactúan las entidades y cómo se 
+cumplen los requerimientos de negocio.
+
+## DTOs (Data Transfer Objects)
+
+Data Transfer Objects (DTOs) se utilizan para transferir datos entre las capas. 
+Son objetos simples que contienen propiedades sin lógica de negocio, que 
+facilitan el intercambio de datos.
+
+## State
+
+Maneja el estado de la aplicación, que puede incluir el estado global o específico 
+de un módulo. Se utiliza para mantener el estado de la aplicación de forma centralizada, 
+especialmente en aplicaciones con gestión de estado como NgRx.

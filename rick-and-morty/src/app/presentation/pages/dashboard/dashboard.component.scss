@@ -1,6 +1,11 @@
 .dashboard-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.container {
+  display: flex;
+  
   background: #FFF;
   border-radius: 10px;
   padding: 10px 2rem;
@@ -8,7 +13,6 @@
 }
 
 .buttons--container {
-  display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;

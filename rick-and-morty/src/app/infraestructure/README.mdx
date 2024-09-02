@@ -1,0 +1,29 @@
+# Capa de Infraestructura
+
+Esta capa contiene detalles específicos de la implementación, como acceso a datos, 
+integración con otros sistemas, y configuración.
+
+## Adapters
+
+Actúan como intermediarios entre la capa de dominio y otros sistemas o infraestructuras. 
+Transforman los datos de una forma que la capa de dominio pueda utilizar.
+
+## Repositories
+
+Implementan la lógica de acceso a datos y almacenamiento, como interactuar con bases de datos 
+o APIs. Los repositorios deben cumplir las interfaces definidas en la capa de dominio.
+
+## Config
+
+Contiene la configuración de la aplicación, como variables de entorno, configuraciones de servicios 
+externos, o cualquier configuración que dependa del entorno en que se ejecuta la aplicación.
+
+## Helpers
+
+Funciones de utilidad que no pertenecen a ninguna otra capa específica pero que son necesarias para la 
+infraestructura, como formateadores, validadores, o parsers.
+
+## Services
+
+Proveen servicios específicos de la infraestructura, como el acceso a APIs externas, integración con 
+sistemas de terceros, o servicios que no dependen de la lógica de negocio.

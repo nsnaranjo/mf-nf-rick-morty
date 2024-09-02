@@ -5,7 +5,7 @@ module.exports = withNativeFederation({
   name: 'mf-rm-characters',
 
   exposes: {
-    './Component': './src/app/app.component.ts',
+    './CharactersTable': './src/app/presentation/shared/components/characters-table/characters-table.component.ts',
   },
 
   shared: {

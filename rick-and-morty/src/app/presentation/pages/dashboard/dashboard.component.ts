@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { MfButtonComponent } from "./components/mf-button/mf-button.component";
-import { MButtonProps } from '../../../domain/models/button-config.interface';
+
+import { loadRemoteModule } from '@angular-architects/native-federation';
+import { ButtonPropsModel } from '../../../domain/models';
+import { NotificationService } from '../../../infraestructure/services';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -10,21 +15,38 @@ import { MButtonProps } from '../../../domain/models/button-config.interface';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  mfButtons: MButtonProps[] = [
+  @ViewChild('remoteApp', { read: ViewContainerRef })
+  viewContainer!: ViewContainerRef;
+
+  mfButtons: ButtonPropsModel[] = [
     {
       imagePath: './assets/characters.jpg',
       text: 'Personajes',
-      onClickAction: () => { console.log('Microfronend Personajes'); }
+      onClickAction: () => { this.loadCharacters(); }
     },
-    {
-      imagePath: './assets/episodes.jpg',
-      text: 'Episodios',
-      onClickAction: () => { console.log('Microfronend Episodios'); }
-    },
-    {
-      imagePath: './assets/locations.jpg',
-      text: 'Ubicaciones',
-      onClickAction: () => { console.log('Microfronend Ubicaciones'); }
-    }
+    // {
+    //   imagePath: './assets/episodes.jpg',
+    //   text: 'Episodios',
+    //   onClickAction: () => {  }
+    // },
+    // {
+    //   imagePath: './assets/locations.jpg',
+    //   text: 'Ubicaciones',
+    //   onClickAction: () => { console.log('Microfronend Ubicaciones'); }
+    // }
   ]
+
+  constructor(private notificationService: NotificationService) {}
+
+  async loadCharacters() {
+    try {
+      const m = await loadRemoteModule('mf-rm-characters', './CharactersTable');
+
+      this.viewContainer.createComponent(m.CharactersTableComponent);
+    } catch (error) {
+      console.error('Error al cargar el módulo remoto:', error);
+
+      this.notificationService.createNotification('error', `Error al cargar el módulo remoto`);
+    }
+  }
 }

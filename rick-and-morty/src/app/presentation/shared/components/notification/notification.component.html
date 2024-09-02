@@ -1,0 +1,16 @@
+<div class="toast-container">
+  <div *ngFor="let notification of notifications$ | async" class="toast" [appTypeNotification]="notification.type">
+    <div class="toast-icon" appIconNotification="{{ notification.type }}"></div>
+
+    <div class="toast-content">
+      <div class="toast-text">
+        <p class="toast-type">{{ notification.type }}</p>
+        <p class="toast-message">{{ notification.message }}</p>
+      </div>
+
+      <button class="toast-dismiss" (click)="removeNotification(notification.id)">
+        X
+      </button>
+    </div>
+  </div>
+</div>

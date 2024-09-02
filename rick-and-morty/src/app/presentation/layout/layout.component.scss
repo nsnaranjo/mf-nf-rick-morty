@@ -1,6 +1,6 @@
 .layaout-wrapper {
   display: flex;
-  height: 100vh; // Asegura que ocupe toda la altura de la pantalla
+  height: 100%; // Asegura que ocupe toda la altura de la pantalla
   width: 100vw;
 }
 
@@ -9,4 +9,6 @@
   background: #EBE9E9;
   width: 100%;
   padding: 1rem;
+  height: max-content;
+  overflow-x: hidden;
 }

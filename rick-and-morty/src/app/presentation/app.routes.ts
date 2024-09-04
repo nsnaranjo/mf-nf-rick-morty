@@ -1,4 +1,10 @@
+// Core
 import { Routes } from '@angular/router';
+
+// Guards
+import { authGuard } from '../infraestructure/guards';
+
+// Components
 import { HomeComponent } from './pages/home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -14,7 +20,8 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [authGuard]
       }
     ]
   }

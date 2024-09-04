@@ -27,10 +27,19 @@ import { IconNotificationDirective, TypeNotificationDirective } from '..';
   styleUrl: './notification.component.scss'
 })
 export class NotificationComponent {
-  notifications$: Observable<NotificationModel[]> = this.store.select(selectAllNotifications);
 
+  // Observable que se suscribe al selector que devuelve todas las notificaciones.
+  // El selector selectAllNotifications se encarga de obtener la lista de notificaciones
+  // desde el estado de la aplicacion. La lista de notificaciones es un array de
+  // objetos NotificationModel que contiene la informacion de cada notificacion.
+  notifications$: Observable<NotificationModel[]> = this.store.select(selectAllNotifications);
+  
   constructor(private store: Store, private notificationService: NotificationService) {}
 
+  /**
+   * Elimina la notificación con el id especificado.
+   * @param id id de la notificacion a eliminar.
+   */
   removeNotification(id: string) {
     this.notificationService.removeNotification(id)
   }

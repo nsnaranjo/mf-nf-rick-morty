@@ -12,24 +12,25 @@ export const initialState: NotificationState = {
 }
 
 /**
- * Creates a reducer for the notifications state.
+ * Reducer para el estado de las notificaciones.
  *
- * The reducer handles the following actions:
- * - addNotification: adds a new notification to the state
- * - removeNotification: removes a notification from the state by its id
+ * El reducer utiliza el operador "on" para escuchar las acciones
+ * addNotification y removeNotification.
  *
- * Returns a new state with the updated notifications array.
+ * Cuando se agrega una notificacion, se crea un nuevo estado que incluye
+ * la notificacion en la lista de notificaciones.
+ *
+ * Cuando se elimina una notificacion, se crea un nuevo estado que excluye
+ * la notificacion de la lista de notificaciones.
  */
 export const notificationReducer = createReducer(
   initialState,
-  // When a new notification is added, create a new state with the new notification
-  // added to the existing notifications array.
+
   on(addNotification, (state, { notification }) => ({
     ...state,
     notifications: [...state.notifications, notification]
   })),
-  // When a notification is removed, create a new state with the notification
-  // removed from the existing notifications array.
+
   on(removeNotification, (state, { id }) => ({
     ...state,
     notifications: state.notifications.filter(notif => notif.id !== id)
